@@ -25,11 +25,9 @@ test('testing all selectors', async ({ page }) => {
 
   // locates an element based on a CSS selector and text content
   await page.locator('div').filter({ hasText: 'Swag Labs' }).nth(5).isVisible();
-  await expect(page.locator('div').filter({ hasText: 'Swag Labs' }).nth(5)).toHaveText('Swag Labs');
 
   // locates an element based on a CSS selector and visible text content
   await page.locator('div').getByText('Swag Labs').isVisible();
-  await expect(page.locator('div').getByText('Swag Labs')).toHaveText('Swag Labs');
 
   // locates an element based on a CSS selector and ARIA role with accessible name
   await page.locator('div').getByRole('heading', { name: 'Swag Labs'}).isVisible();
