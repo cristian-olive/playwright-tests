@@ -1,0 +1,33 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://practice.qabrains.com/');
+  await page.getByText('Registration').click();
+  await page.getByRole('textbox', { name: 'Name*' }).click();
+  await page.getByRole('textbox', { name: 'Name*' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Name*' }).fill('C');
+  await page.getByRole('textbox', { name: 'Name*' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Name*' }).fill('Cristian ');
+  await page.getByRole('textbox', { name: 'Name*' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Name*' }).fill('Cristian O');
+  await page.getByRole('textbox', { name: 'Name*' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Name*' }).fill('Cristian Oliveros');
+  await page.getByLabel('Select Country*').selectOption('Colombia');
+  await page.getByLabel('Account Type*').selectOption('Engineer');
+  await page.getByRole('textbox', { name: 'Email*' }).click();
+  await page.getByRole('textbox', { name: 'Email*' }).fill('cristian.test@mail.com');
+  await page.getByRole('textbox', { name: 'Password*', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Password*', exact: true }).fill('test');
+  await page.getByRole('textbox', { name: 'Password*', exact: true }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password*', exact: true }).fill('testC');
+  await page.getByRole('textbox', { name: 'Password*', exact: true }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Password*', exact: true }).fill('testCristian');
+  await page.getByRole('textbox', { name: 'Confirm Password*' }).click();
+  await page.getByRole('textbox', { name: 'Confirm Password*' }).fill('test');
+  await page.getByRole('textbox', { name: 'Confirm Password*' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Confirm Password*' }).fill('testC');
+  await page.getByRole('textbox', { name: 'Confirm Password*' }).press('CapsLock');
+  await page.getByRole('textbox', { name: 'Confirm Password*' }).fill('testCristian');
+  await page.getByRole('button', { name: 'Signup' }).click();
+  await page.locator('span').filter({ hasText: 'Registration Successful' }).click();
+});
