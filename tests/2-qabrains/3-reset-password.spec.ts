@@ -2,7 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://practice.qabrains.com/');
-  await page.getByText('Forgot Password').click();
+  await Promise.all([
+    page.waitForNavigation(),
+    page.getByText('Forgot Password').click()
+]);
+  // await page.getByText('Forgot Password').click();
   await page.getByRole('textbox', { name: 'Email*' }).click();
   await page.getByRole('textbox', { name: 'Email*' }).fill('cristian.tester@mail.com');
   await page.getByRole('button', { name: 'Reset Password' }).click();
