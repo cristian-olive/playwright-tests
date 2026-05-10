@@ -4,6 +4,7 @@ export class LoginPage {
 
     constructor(private page: Page) {}
 
+    readonly title = this.page.locator('[data-test="title"]');
     readonly emailInput = this.page.locator('[data-test="username"]');
     readonly passwordInput = this.page.locator('[data-test="password"]');
     readonly loginButton = this.page.locator('[data-test="login-button"]');
