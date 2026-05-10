@@ -1,6 +1,8 @@
+import { Page } from '@playwright/test';
+
 export class LoginPage {
 
-    constructor(private page:Page) {}
+    constructor(private page: Page) {}
 
     readonly emailInput = this.page.locator('[data-test="username"]');
     readonly passwordInput = this.page.locator('[data-test="password"]');
