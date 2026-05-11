@@ -8,6 +8,7 @@ export class LoginPage {
     readonly emailInput = this.page.locator('[data-test="username"]');
     readonly passwordInput = this.page.locator('[data-test="password"]');
     readonly loginButton = this.page.locator('[data-test="login-button"]');
+    readonly errorMessage = this.page.locator('[data-test="error"]');
 
     async goto() {
         await this.page.goto('https://www.saucedemo.com/');
