@@ -10,7 +10,7 @@ export const test = base.extend<AdminFixture>({
     orangeHRMAdminPage: async ({ orangeHRMLoginPage }, use) => {
         const orangeHRMAdminPage = new OrangeHRMAdminPage(orangeHRMLoginPage.page);
         await orangeHRMAdminPage.adminTab.click();
-        await orangeHRMAdminPage.addUser('Cristian', 'Cristian', 'Cristian123');
+        await orangeHRMAdminPage.addUser('Admin', 'Enabled', 'johndoe', 'Password123');
         await use(orangeHRMAdminPage);
     }
 });

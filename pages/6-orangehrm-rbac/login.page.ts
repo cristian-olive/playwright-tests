@@ -3,9 +3,9 @@ import { Page } from '@playwright/test';
 export class OrangeHRMLoginPage {
     constructor(readonly page: Page) {}
 
-    readonly usernameInput = this.page.getByRole('textbox', { name: 'Username' });
-    readonly passwordInput = this.page.getByRole('textbox', { name: 'Password' });
-    readonly loginButton = this.page.getByRole('button', { name: 'Login' });
+    readonly usernameInput = this.page.locator('input[name="username"]');
+    readonly passwordInput = this.page.locator('input[name="password"]');
+    readonly loginButton = this.page.locator('button[type="submit"]');
     readonly dashboardLink = this.page.getByRole('link', { name: 'Dashboard' });
     readonly logoutModal = this.page.locator('.oxd-userdropdown-tab');
     readonly logoutButton = this.page.getByRole('menuitem', { name: 'Logout' });
