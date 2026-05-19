@@ -1,4 +1,4 @@
-import  {Page} from '@playwright/test';
+import  {expect, Page} from '@playwright/test';
 
 export class OrangeHRMAdminPage {
     constructor(private page: Page) {}
@@ -18,6 +18,13 @@ export class OrangeHRMAdminPage {
     readonly loaderSearch = this.page.getByRole('option', { name: 'Searching....' });
     readonly statusOptionDisabled = this.page.getByRole('option', { name: 'Disabled' });
     readonly userCreationNotificationSuccess = this.page.getByText('SuccessSuccessfully Saved×');
+    readonly usernameInputSearch = this.page.getByRole('textbox').nth(1);
+    readonly searchUserButton = this.page.getByRole('button', { name: 'Search' });
+    readonly checkboxSelectUser = this.page.locator('.oxd-table-card-cell-checkbox > .oxd-checkbox-wrapper > label > .oxd-checkbox-input > .oxd-icon');
+    readonly counterRecordElement = this.page.getByText('(1) Record Found');
+    readonly deleteUsersButton = this.page.getByRole('button').filter({ hasText: /^$/ }).nth(3);
+    readonly confirmDeleteButton = this.page.getByRole('button', { name: ' Yes, Delete' })
+    readonly noRecordFoundElement = this.page.getByText('SuccessSuccessfully Deleted×');
 
     async goto() {
         await this.adminTab.click();
@@ -44,8 +51,8 @@ export class OrangeHRMAdminPage {
 
     async searchUser() {
         await this.employeeNameInput.fill('a');
-        const tempUserName = await this.page.locator('.oxd-userdropdown-name').textContent()
-        console.log(tempUserName);
+        const currentNameUser = await this.page.locator('.oxd-userdropdown-name').textContent()
+        console.log(currentNameUser);
         const options = this.page.getByRole('option');
         const optionCount = await options.count();
 
@@ -54,7 +61,7 @@ export class OrangeHRMAdminPage {
         for (let i = 0; i < optionCount; i++) {
             const optionText = await options.nth(i).textContent();
             console.log(optionText);
-            if (optionText !== tempUserName && optionText !== 'Searching....') {
+            if (optionText !== currentNameUser && optionText !== 'Searching....') {
                 await options.nth(i).click();
                 break;
             }
@@ -85,5 +92,16 @@ export class OrangeHRMAdminPage {
             console.log('Status option not found, defaulting to Enabled');
              await this.statusOptionEnabled.click();
         }
+    }
+
+    async deleteUser(username: string) {
+        await this.adminTab.click();
+        await this.usernameInputSearch.fill(username);
+        await this.searchUserButton.click();
+        await this.counterRecordElement.waitFor({ state: 'visible' });
+        await this.checkboxSelectUser.click();
+        await this.deleteUsersButton.click();
+        await this.confirmDeleteButton.click();
+        await expect(this.noRecordFoundElement).toBeVisible();
     }
 }

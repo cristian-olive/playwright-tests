@@ -11,7 +11,9 @@ export const test = base.extend<AdminFixture>({
         const orangeHRMAdminPage = new OrangeHRMAdminPage(orangeHRMLoginPage.page);
         await orangeHRMAdminPage.adminTab.click();
         await orangeHRMAdminPage.addUser('Admin', 'Enabled', 'johndoe', 'Password123');
+        await expect(orangeHRMAdminPage.userCreationNotificationSuccess).toBeVisible();
         await use(orangeHRMAdminPage);
+        await orangeHRMAdminPage.deleteUser('johndoe');
     }
 });
 

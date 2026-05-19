@@ -12,7 +12,7 @@ export const test = base.extend<AuthFixture>({
         await orangeHRMLoginPage.goto(env.apiUrl);
         await orangeHRMLoginPage.login(env.admin.user, env.admin.password);
         await use(orangeHRMLoginPage);
-        // await orangeHRMLoginPage.logout();
+        await orangeHRMLoginPage.logout();
     }
 });
 
