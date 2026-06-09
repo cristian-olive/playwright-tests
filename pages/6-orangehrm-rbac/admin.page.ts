@@ -98,7 +98,7 @@ export class OrangeHRMAdminPage {
         await this.adminTab.click();
         await this.usernameInputSearch.fill(username);
         await this.searchUserButton.click();
-        await this.counterRecordElement.waitFor({ state: 'visible' });
+        await this.counterRecordElement.waitFor({ state: 'visible', timeout: 10000 });
         await this.checkboxSelectUser.click();
         await this.deleteUsersButton.click();
         await this.confirmDeleteButton.click();
