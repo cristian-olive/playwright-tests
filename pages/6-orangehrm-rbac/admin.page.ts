@@ -52,7 +52,6 @@ export class OrangeHRMAdminPage {
     async searchUser() {
         await this.employeeNameInput.fill('a');
         const currentNameUser = await this.page.locator('.oxd-userdropdown-name').textContent()
-        console.log(currentNameUser);
         const options = this.page.getByRole('option');
         const optionCount = await options.count();
 
@@ -60,7 +59,6 @@ export class OrangeHRMAdminPage {
 
         for (let i = 0; i < optionCount; i++) {
             const optionText = await options.nth(i).textContent();
-            console.log(optionText);
             if (optionText !== currentNameUser && optionText !== 'Searching....') {
                 await options.nth(i).click();
                 break;

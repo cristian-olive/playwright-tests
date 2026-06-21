@@ -4,32 +4,32 @@ import { env } from '../../src/config/env';
 
 
 type AdminFixture = {
-    orangeHRMAdminPage: OrangeHRMAdminPage;
+    userManagement: OrangeHRMAdminPage;
 }
 
 export const test = base.extend<AdminFixture>({
-    orangeHRMAdminPage: async ({ orangeHRMLoginPage }, use) => {
-        const orangeHRMAdminPage = new OrangeHRMAdminPage(orangeHRMLoginPage.page);
-        await orangeHRMAdminPage.adminTab.click();
+    userManagement: async ({ orangeHRMLoginPage }, use) => {
+        const userManagement = new OrangeHRMAdminPage(orangeHRMLoginPage.page);
+        await userManagement.adminTab.click();
         
         // Setup: Create all test users
         const createdUsernames: string[] = [];
         for (const testUser of env.testUsers) {
-            await orangeHRMAdminPage.addUser(
+            await userManagement.addUser(
                 testUser.role,
                 testUser.status,
                 testUser.username,
                 testUser.password
             );
-            await expect(orangeHRMAdminPage.userCreationNotificationSuccess).toBeVisible();
+            await expect(userManagement.userCreationNotificationSuccess).toBeVisible();
             createdUsernames.push(testUser.username);
         }
         await orangeHRMLoginPage.logout();
-        await use(orangeHRMAdminPage);
+        await use(userManagement);
         // Teardown: Delete all created test users
         await orangeHRMLoginPage.login(env.admin.user, env.admin.password);
         for (const username of createdUsernames) {
-            await orangeHRMAdminPage.deleteUser(username);
+            await userManagement.deleteUser(username);
         }
     }
 });
