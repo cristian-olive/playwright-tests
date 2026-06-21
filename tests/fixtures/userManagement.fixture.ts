@@ -10,6 +10,7 @@ type AdminFixture = {
 export const test = base.extend<AdminFixture>({
     userManagement: async ({ orangeHRMLoginPage }, use) => {
         const userManagement = new OrangeHRMAdminPage(orangeHRMLoginPage.page);
+        await orangeHRMLoginPage.login(env.admin.user, env.admin.password);
         await userManagement.adminTab.click();
         
         // Setup: Create all test users
@@ -31,6 +32,7 @@ export const test = base.extend<AdminFixture>({
         for (const username of createdUsernames) {
             await userManagement.deleteUser(username);
         }
+        await orangeHRMLoginPage.logout();
     }
 });
 

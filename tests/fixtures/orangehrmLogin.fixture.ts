@@ -10,9 +10,7 @@ export const test = base.extend<AuthFixture>({
     orangeHRMLoginPage: async ({page}, use) => {
         const orangeHRMLoginPage = new OrangeHRMLoginPage(page);
         await orangeHRMLoginPage.goto(env.apiUrl);
-        await orangeHRMLoginPage.login(env.admin.user, env.admin.password);
         await use(orangeHRMLoginPage);
-        await orangeHRMLoginPage.logout();
     }
 });
 
