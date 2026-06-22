@@ -1,7 +1,6 @@
-import { test, expect } from '../fixtures/userManagement.fixture';
+import { test, expect } from '../fixtures/orangehrmUserManager.fixture';
 
 test.describe.configure({ timeout: 200000 });
 
-test('login successfully', async ({ userManagement }) => {
-    
+test('login successfully', async ({ orangeHRMUserManager }) => {
 });
