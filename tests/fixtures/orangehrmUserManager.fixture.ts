@@ -3,11 +3,11 @@ import { OrangeHRMAdminPage } from '../../pages/6-orangehrm-rbac/admin.page';
 import { env } from '../../src/config/env';
 
 
-type AdminFixture = {
+type UserManagementFixture = {
     orangeHRMUserManager: OrangeHRMAdminPage;
 }
 
-export const test = base.extend<AdminFixture>({
+export const test = base.extend<UserManagementFixture>({
     orangeHRMUserManager: async ({ orangeHRMLoginPage }, use) => {
         const orangeHRMUserManager = new OrangeHRMAdminPage(orangeHRMLoginPage.page);
         await orangeHRMLoginPage.login(env.admin.user, env.admin.password);
