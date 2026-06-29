@@ -32,20 +32,14 @@ export class OrangeHRMAdminPage {
 
     async addUser(role: string, status: string, username: string, password: string) {
         await this.addButton.click();
-
         await this.userRoleSelect.click();
         await this.selectRole(role);
-
         await this.statusSelect.click();
         await this.selectStatus(status);
-
         await this.searchUser();
-        
         await this.usernameInput.fill(username);
-
         await this.passwordInput.fill(password);
         await this.confirmPasswordInput.fill(password);
-
         await this.saveButton.click();
     }
 
