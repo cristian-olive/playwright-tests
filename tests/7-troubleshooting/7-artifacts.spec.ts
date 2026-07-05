@@ -1,7 +1,7 @@
 import { test, expect } from '../fixtures/saucedemo.fixture';
 import { Screenshot } from '../../utils/screenshot';
 
-test('login', async ({ page, loginPage, purchasePage }) => {
+test('Purchase items', async ({ page, loginPage, purchasePage }) => {
     await loginPage.goto();
     await Screenshot.take(page, 'login-page');
     await loginPage.Login('standard_user', 'secret_sauce');
