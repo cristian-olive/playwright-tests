@@ -12,5 +12,6 @@ node_modules/
 .env.*
 !.env.example
 
-# Playwright's screenshots
+# Playwright's artifatcts
+artifacts/
 screenshots/
