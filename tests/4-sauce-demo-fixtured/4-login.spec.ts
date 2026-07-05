@@ -1,4 +1,4 @@
-import {test, expect} from '../fixtures/saucedemoLogin.fixture';
+import {test, expect} from '../fixtures/saucedemo.fixture';
 
 test('login', async ({ loginPage }) => {
     await loginPage.goto();

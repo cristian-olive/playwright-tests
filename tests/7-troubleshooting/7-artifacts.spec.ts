@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/saucedemoLogin.fixture';
+import { test, expect } from '../fixtures/saucedemo.fixture';
 import { Screenshot } from '../../utils/screenshot';
 
 test('login', async ({ page, loginPage, purchasePage }) => {

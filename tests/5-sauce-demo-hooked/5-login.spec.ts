@@ -1,4 +1,4 @@
-import {test, expect} from '../fixtures/saucedemoLogin.fixture';
+import {test, expect} from '../fixtures/saucedemo.fixture';
 
 test.beforeEach(async ({loginPage}) => {
     console.log('This will run before each test in this file');
