@@ -1,5 +1,9 @@
+import path from 'path';
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
+
+const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+const artifactsDir = path.resolve(__dirname, 'artifacts', timestamp);
 
 dotenv.config({
   path: `.env.${process.env.ENV || 'qa'}`
@@ -29,6 +33,7 @@ export default defineConfig({
   timeout: 60000,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  outputDir: artifactsDir,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* recomended config for troubleshooting */
