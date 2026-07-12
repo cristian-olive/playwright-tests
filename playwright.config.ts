@@ -48,8 +48,25 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'Chrome',
+      use: { ...devices['Desktop Chrome'],
+        channel: 'chrome',
+        viewport: { width: 1920, height: 1080 }
+       },
+    },
+    {
+      name: 'Edge',
+      use: { ...devices['Desktop Edge'],
+        channel: 'msedge',
+        viewport: { width: 1920, height: 1080 }
+       },
+    },
+    {
+      name: 'Firefox',
+      use: { ...devices['Desktop Firefox'],
+        browserName: 'firefox',
+        viewport: { width: 1920, height: 1080 }
+       },
     },
 
     // {
