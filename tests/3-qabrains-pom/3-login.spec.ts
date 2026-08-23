@@ -7,5 +7,5 @@ test('test', async ({ page }) => {
   await loginPage.login('qa_testers@qabrains.com', 'Password123');
   await expect(
     page.locator('div').filter({ hasText: /^Login Successful$/ }).nth(1)
-  ).toBeVisible();
+  ).toBeVisible({timeout: 5000});
 });

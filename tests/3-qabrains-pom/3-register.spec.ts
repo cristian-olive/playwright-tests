@@ -8,5 +8,5 @@ test('register test', async ({ page }) => {
     await registerPage.register('Cristian', 'cristian@example.com', 'password123');
     await expect(
         page.locator('span').filter({ hasText: 'Registration Successful' })
-    ).toBeVisible();
+    ).toBeVisible({timeout: 5000});
 });

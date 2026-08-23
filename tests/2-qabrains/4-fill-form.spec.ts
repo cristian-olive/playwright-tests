@@ -17,7 +17,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Contact Number*' }).click();
   await page.getByRole('textbox', { name: 'Contact Number*' }).fill('12121212121');
   await page.getByRole('textbox', { name: 'Date' }).fill('2026-08-06');
-  await page.getByRole('button', { name: 'Upload File*' }).setInputFiles('./fixtures/files/test.txt');
+  await page.getByRole('button', { name: 'Upload File*' }).setInputFiles('./tests/fixtures/files/test.txt');
   await page.getByRole('radio', { name: 'Blue' }).check();
   await page.getByRole('checkbox', { name: 'Burger' }).check();
   await page.getByLabel('Select Country*').selectOption('Colombia');
