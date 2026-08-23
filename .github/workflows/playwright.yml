@@ -13,7 +13,30 @@ jobs:
 
     env:
       BASE_URL: ${{ secrets.BASE_URL }}
-    
+      API_URL: ${{ secrets.API_URL }}
+      ADMIN_USER: ${{ secrets.ADMIN_USER }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      TEST_USER_1_ROLE: ${{ secrets.TEST_USER_1_ROLE }}
+      TEST_USER_1_STATUS: ${{ secrets.TEST_USER_1_STATUS }}
+      TEST_USER_1_USERNAME: ${{ secrets.TEST_USER_1_USERNAME }}
+      TEST_USER_1_PASSWORD: ${{ secrets.TEST_USER_1_PASSWORD }}
+      TEST_USER_2_ROLE: ${{ secrets.TEST_USER_2_ROLE }}
+      TEST_USER_2_STATUS: ${{ secrets.TEST_USER_2_STATUS }}
+      TEST_USER_2_USERNAME: ${{ secrets.TEST_USER_2_USERNAME }}
+      TEST_USER_2_PASSWORD: ${{ secrets.TEST_USER_2_PASSWORD }}
+      TEST_USER_3_ROLE: ${{ secrets.TEST_USER_3_ROLE }}
+      TEST_USER_3_STATUS: ${{ secrets.TEST_USER_3_STATUS }}
+      TEST_USER_3_USERNAME: ${{ secrets.TEST_USER_3_USERNAME }}
+      TEST_USER_3_PASSWORD: ${{ secrets.TEST_USER_3_PASSWORD }}
+      TEST_USER_4_ROLE: ${{ secrets.TEST_USER_4_ROLE }}
+      TEST_USER_4_STATUS: ${{ secrets.TEST_USER_4_STATUS }}
+      TEST_USER_4_USERNAME: ${{ secrets.TEST_USER_4_USERNAME }}
+      TEST_USER_4_PASSWORD: ${{ secrets.TEST_USER_4_PASSWORD }}
+      TEST_USER_5_ROLE: ${{ secrets.TEST_USER_5_ROLE }}
+      TEST_USER_5_STATUS: ${{ secrets.TEST_USER_5_STATUS }}
+      TEST_USER_5_USERNAME: ${{ secrets.TEST_USER_5_USERNAME }}
+      TEST_USER_5_PASSWORD: ${{ secrets.TEST_USER_5_PASSWORD }}
+
     steps:
 
     - name: Checkout repository
