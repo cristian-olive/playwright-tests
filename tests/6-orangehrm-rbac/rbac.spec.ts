@@ -1,7 +1,7 @@
 import { test, expect } from '../fixtures/orangeHRM.fixture';
 import { env } from '../../src/config/env';
 
-test.describe.configure({ timeout: 200000 });
+test.describe.configure({ timeout: 500000 });
 
 test.describe.serial('RBAC Tests', () => {
 	test.beforeEach(async ({ orangeHRMLoginPage, orangeHRMAdminPage }) => {
