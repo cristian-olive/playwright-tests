@@ -12,7 +12,7 @@ export class PurchasePage {
     readonly lastNameCheckoutInput = this.page.locator('[data-test="lastName"]');
     readonly postalCodeCheckoutInput = this.page.locator('[data-test="postalCode"]');
     readonly continueCheckoutButton = this.page.locator('[data-test="continue"]');
-    readonly finishCheckoutButton = this.page.locator('[data-test="BAD-LOCATOR"]');
+    readonly finishCheckoutButton = this.page.locator('[data-test="finish"]');
     readonly successMessage = this.page.locator('[data-test="complete-header"]');
 
     async addShoppingItems(items: Array<Locator | string>) {
