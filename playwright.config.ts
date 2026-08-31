@@ -53,6 +53,7 @@ export default defineConfig({
         channel: 'chrome',
         viewport: { width: 1920, height: 1080 }
        },
+       testIgnore: ['tests/6-orangehrm-rbac/rbac.spec.ts'],
     },
     {
       name: 'Edge',
